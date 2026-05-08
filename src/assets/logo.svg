@@ -1,19 +1,32 @@
 <svg width="280" height="60" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- TV Frame -->
-  <rect x="5" y="12" width="50" height="36" rx="4" stroke="#E50914" stroke-width="3"/>
-  <!-- Antennas (Optional, for that classic TV look) -->
-  <path d="M20 12L12 4" stroke="#E50914" stroke-width="2" stroke-linecap="round"/>
-  <path d="M40 12L48 4" stroke="#E50914" stroke-width="2" stroke-linecap="round"/>
-  
-  <!-- Pulse inside the TV Screen -->
-  <path d="M15 30H20L25 22L35 38L40 30H45" stroke="#E50914" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  
-  <!-- Stand -->
-  <path d="M22 48L18 54" stroke="#E50914" stroke-width="3" stroke-linecap="round"/>
-  <path d="M38 48L42 54" stroke="#E50914" stroke-width="3" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="redGradient" x1="0" y1="0" x2="0" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E50914"/>
+      <stop offset="100%" stop-color="#B20710"/>
+    </linearGradient>
+  </defs>
 
-  <!-- Text -->
-  <text x="70" y="42" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="32" fill="#E50914" style="letter-spacing: -1px;">
+  <!-- Sleek TV Frame -->
+  <rect x="6" y="14" width="50" height="34" rx="4" stroke="url(#redGradient)" stroke-width="2.5"/>
+  
+  <!-- TV Screen Background (Red) -->
+  <rect x="8.5" y="16.5" width="45" height="29" rx="2" fill="url(#redGradient)"/>
+  
+  <!-- Modern Antennas -->
+  <path d="M22 14L16 7" stroke="url(#redGradient)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M40 14L46 7" stroke="url(#redGradient)" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- "AI" on the Red Screen (Black) -->
+  <text x="31" y="36.5" font-family="Inter, system-ui, sans-serif" font-weight="900" font-size="20" fill="#141414" text-anchor="middle" dominant-baseline="middle" style="letter-spacing: 0.5px;">
+    AI
+  </text>
+
+  <!-- Stand -->
+  <path d="M22 48L19 54" stroke="url(#redGradient)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M40 48L43 54" stroke="url(#redGradient)" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Main Text -->
+  <text x="70" y="42" font-family="Inter, system-ui, sans-serif" font-weight="900" font-size="32" fill="url(#redGradient)" style="letter-spacing: -1.5px;">
     StreamPulse
   </text>
 </svg>

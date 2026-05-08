@@ -1,16 +1,15 @@
-# React + Vite
+# StreamPulse 🎬
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and powerful streaming app.
 
-Currently, two official plugins are available:
+## ✅ Features Already Implemented:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*   **Login & Sign Up:** You can create a new account or sign in to an existing one using Firebase.
+*   **Form Validation:** Automatically checks if your email and password are in the correct format.
+*   **Friendly Error Messages:** If something goes wrong (like a wrong password), the app shows a simple, easy-to-read message.
+*   **Show/Hide Password:** A "eye" icon to let you see what you are typing in the password field.
+*   **Toggle Forms:** A button to easily switch between the "Sign In" and "Sign Up" screens.
+*   **Modern Design:** A beautiful "Glass" look with blurred backgrounds and smooth buttons.
+*   **Page Routing:** The app is set up to move between the Login screen and the Browse screen.
+*   **Redux Store:** A central place (the Store) is ready to save your user data.
+*   **Mobile Friendly:** The layout automatically adjusts to look great on phones, tablets, and computers.
