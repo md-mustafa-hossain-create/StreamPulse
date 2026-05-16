@@ -1,8 +1,8 @@
 import { forwardRef } from "react";
 
 /**
- * Industrial-Grade Reusable Input Component
- * Follows Tailwind CSS Patterns Skill for consistency, focus states, and transitions.
+ * NOTE: reusable input primitive designed for consistent form styling and accessibility
+ * implementing focus-ring transitions and autofill resets for industrial-grade UI
  */
 const Input = forwardRef(({ className = "", error, suffix, ...props }, ref) => {
   const baseStyles =

@@ -13,3 +13,6 @@ A simple and powerful streaming app.
 *   **Page Routing:** The app is set up to move between the Login screen and the Browse screen.
 *   **Redux Store:** A central place (the Store) is ready to save your user data.
 *   **Mobile Friendly:** The layout automatically adjusts to look great on phones, tablets, and computers.
+
+
+- installed axios 

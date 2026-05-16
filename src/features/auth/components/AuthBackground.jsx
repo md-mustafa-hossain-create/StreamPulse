@@ -1,5 +1,10 @@
 import { BG_IMAGE_URL } from "../../../utils/constants";
 
+/**
+ * NOTE: cinematic background component for the authentication screens
+ * applies a custom 3D transform and multi-layered gradient overlays to create depth
+ * and focus for the foreground auth card
+ */
 const AuthBackground = () => {
   return (
     <>

@@ -1,11 +1,11 @@
-// Import the functions you need from the SDKs you need
+// importing required firebase modules for application initialization and analytics
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 
 /**
- * Firebase Configuration
- * Values are pulled from the .env file for security and environment management.
+ * NOTE: application-specific firebase configuration object
+ * environment variables are utilized to secure sensitive credentials and enable multi-stage deployments
  */
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -17,11 +17,11 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
+// bootstrap firebase services with the provided configuration
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-// Initialize and Export Auth
+// exposing the firebase auth instance for application-wide authentication management
 export const auth = getAuth(app); 
 
 export default app;

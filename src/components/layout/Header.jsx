@@ -3,16 +3,16 @@ import logo from "../../assets/logo.svg";
 import { User, Menu, X } from "lucide-react";
 import Button from "../ui/Button";
 import { NavLink } from "react-router-dom";
-import { NAV_ITEMS } from "../../utils/constants";
 import { signOut } from "firebase/auth";
 import { auth } from "../../lib/firebase";
 import { useSelector } from "react-redux";
+import { APP_NAME, NAV_ITEMS, ROUTES } from "../../utils/constants";
 
 const Header = ({ variant = "main" }) => {
   const [isOpen, setIsOpen] = useState(false);
   const user = useSelector((store) => store.user);
 
-  // Logic based on variant
+  // determining navigation visibility and layout based on the header's display context
   const showNav = variant === "main";
   const isLogoOnly = variant === "auth";
 
@@ -23,8 +23,7 @@ const Header = ({ variant = "main" }) => {
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
-        // (Redirection is now handled by the Body component)
+        // NOTE: firebase session termination confirmed; routing is handled by the parent Body component listener
       })
       .catch((error) => {
         console.error("Logout Error:", error);
@@ -32,32 +31,26 @@ const Header = ({ variant = "main" }) => {
   };
 
   return (
-    <header className="flex justify-between items-center px-6 md:px-12 lg:px-20 py-4 text-white absolute top-0 left-0 w-full z-50">
-      {/* Logo */}
+    <header className="flex justify-between items-center px-6 md:px-12 lg:px-20 py-4 text-white absolute top-0 left-0 w-full z-100 bg-linear-to-b from-black/90 to-transparent">
+      {/* branding element with responsive sizing and transition effects */}
       <img
         src={logo}
-        alt="StreamPulse Logo"
+        alt={`${APP_NAME} Logo`}
         className="w-56 md:w-64 lg:w-72 h-auto object-contain transition-all duration-300"
       />
 
-      {/* Navigation and User Menu */}
+      {/* rendering conditional navigation links and user account controls */}
       {!isLogoOnly && (
         <>
           <div className="flex items-center gap-5">
             {showNav && (
               <nav>
-                <ul className=" hidden lg:flex items-center h-full gap-5 font-medium ">
+                <ul className=" hidden lg:flex items-center h-full gap-5 font-medium text-lg ">
                   {NAV_ITEMS.map((item, index) => (
                     <li key={index}>
                       <NavLink
-                        to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
-                        className={({ isActive }) =>
-                          `cursor-pointer transition duration-300 ${
-                            isActive
-                              ? "text-brand-red font-bold"
-                              : "hover:text-brand-red"
-                          }`
-                        }
+                        to={ROUTES.BROWSE}
+                        className="cursor-pointer text-white font-medium hover:text-white/70 transition-colors duration-300"
                       >
                         {item}
                       </NavLink>
@@ -68,38 +61,40 @@ const Header = ({ variant = "main" }) => {
             )}
 
             {showNav && (
-              <div className="lg:flex items-center gap-3 group relative hidden">
-                <div>
-                  <Button variants="avatar">
-                    <User />
-                  </Button>
+              <div className="lg:flex items-center gap-3 group relative hidden cursor-pointer">
+                <Button
+                  variants="avatar"
+                  className="group-hover:bg-brand-red-dark transition-colors duration-300"
+                >
+                  <User />
+                </Button>
 
-                  <div className="absolute top-full right-0 mt-2 w-48 bg-brand-black/95 backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl hidden group-hover:block transition-all animate-in fade-in slide-in-from-top-2 duration-300 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 before:content-['']">
-                    <nav className="p-4">
-                      <ul className="flex flex-col gap-4">
-                        <li className="text-sm font-medium hover:text-brand-red cursor-pointer transition">
-                          My Profile
-                        </li>
-                        <li className="text-sm font-medium hover:text-brand-red cursor-pointer transition">
-                          Account Settings
-                        </li>
-                        <hr className="border-white/10" />
-                        <li>
-                          <Button
-                            variants="ghost"
-                            className="w-full justify-start! p-0"
-                            onClick={handleLogout}
-                          >
-                            Log Out
-                          </Button>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
+                <div className="text-sm font-semibold max-w-[100px] truncate cursor-pointer group-hover:text-white/70 transition-colors duration-300">
+                  {user?.displayName}
                 </div>
 
-                <div className="text-sm font-semibold max-w-[100px] truncate">
-                  {user?.displayName}
+                {/* NOTE: using a transparent 'before' bridge to maintain hover state when moving cursor to the dropdown */}
+                <div className="absolute top-full right-0 mt-2 w-48 bg-brand-black/95 backdrop-blur-xl border border-white/10 rounded-lg shadow-2xl hidden group-hover:block transition-all animate-in fade-in slide-in-from-top-2 duration-300 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 before:content-['']">
+                  <nav className="p-4">
+                    <ul className="flex flex-col gap-4">
+                      <li className="text-sm font-medium hover:text-brand-red cursor-pointer transition">
+                        My Profile
+                      </li>
+                      <li className="text-sm font-medium hover:text-brand-red cursor-pointer transition">
+                        Account Settings
+                      </li>
+                      <hr className="border-white/10" />
+                      <li>
+                        <Button
+                          variants="ghost"
+                          className="w-full justify-start! p-0"
+                          onClick={handleLogout}
+                        >
+                          Log Out
+                        </Button>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
               </div>
             )}
