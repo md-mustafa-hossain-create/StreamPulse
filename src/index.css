@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
-
 @theme {
   --color-brand-red: #e50914;
   --color-brand-red-dark: #c11119;

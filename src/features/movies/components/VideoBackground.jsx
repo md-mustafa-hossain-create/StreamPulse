@@ -34,8 +34,10 @@ const VideoBackground = ({ movieTitle, backdropPath }) => {
           "&vq=hd1080"
         }
         title={`${movieTitle} trailer`}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
       ></iframe>
 
       <div
