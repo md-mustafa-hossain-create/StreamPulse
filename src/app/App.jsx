@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
-import appStore from "./store/appStore";
+import appStore from "./appStore";
 import { RouterProvider } from "react-router-dom";
-import router from "./routes/router";
+import router from "./router";
 
 function App() {
   return (

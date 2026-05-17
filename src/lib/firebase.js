@@ -19,9 +19,9 @@ const firebaseConfig = {
 
 // bootstrap firebase services with the provided configuration
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+getAnalytics(app);
 
 // exposing the firebase auth instance for application-wide authentication management
-export const auth = getAuth(app); 
+export const auth = getAuth(app);
 
 export default app;

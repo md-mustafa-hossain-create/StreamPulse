@@ -1,8 +1,6 @@
 const VideoTitle = ({ movieTitle, overview }) => {
   return (
-    // NOTE: z-50 keeps this above the video layers; positioned from the bottom to avoid header overlap
     <div className="absolute bottom-[10%] md:bottom-[18%] left-0 px-6 md:px-12 lg:px-20 z-50 w-full max-w-xs md:max-w-xl lg:max-w-3xl">
-      {/* "Now Playing" badge */}
       <div
         className="flex items-center gap-2 mb-3 md:mb-4"
         aria-label="Content label"
@@ -16,7 +14,6 @@ const VideoTitle = ({ movieTitle, overview }) => {
         </p>
       </div>
 
-      {/* Movie title — scales from mobile (2xl) to desktop (6xl) */}
       <h1
         className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-2 md:mb-4"
         style={{
@@ -26,7 +23,6 @@ const VideoTitle = ({ movieTitle, overview }) => {
         {movieTitle}
       </h1>
 
-      {/* Movie overview — hidden on mobile to save space, visible from md+ */}
       <p
         className="hidden md:block text-sm lg:text-base text-gray-100 leading-relaxed max-w-sm lg:max-w-lg line-clamp-2 lg:line-clamp-3 mb-5 md:mb-8"
         style={{ textShadow: "0 1px 8px rgba(0,0,0,0.95)" }}
@@ -34,7 +30,6 @@ const VideoTitle = ({ movieTitle, overview }) => {
         {overview}
       </p>
 
-      {/* Action buttons */}
       <div
         className="flex items-center gap-3 md:gap-4"
         role="group"
@@ -43,12 +38,7 @@ const VideoTitle = ({ movieTitle, overview }) => {
         <button
           type="button"
           aria-label={`Play ${movieTitle}`}
-          className="flex items-center gap-2 bg-white text-black font-bold
-            text-sm md:text-base
-            px-5 md:px-8 py-2 md:py-2.5
-            rounded cursor-pointer
-            hover:bg-white/75 active:scale-95
-            transition-all duration-200"
+          className="flex items-center gap-2 bg-white text-black font-bold text-sm md:text-base px-5 md:px-8 py-2 md:py-2.5 rounded cursor-pointer hover:bg-white/75 active:scale-95 transition-all duration-200"
         >
           <svg
             aria-hidden="true"
@@ -65,12 +55,7 @@ const VideoTitle = ({ movieTitle, overview }) => {
         <button
           type="button"
           aria-label={`More information about ${movieTitle}`}
-          className="flex items-center gap-2 bg-white/20 text-white font-semibold
-            text-sm md:text-base
-            px-5 md:px-8 py-2 md:py-2.5
-            rounded cursor-pointer
-            hover:bg-white/30 active:scale-95
-            transition-all duration-200"
+          className="flex items-center gap-2 bg-white/20 text-white font-semibold text-sm md:text-base px-5 md:px-8 py-2 md:py-2.5 rounded cursor-pointer hover:bg-white/30 active:scale-95 transition-all duration-200"
         >
           <svg
             aria-hidden="true"

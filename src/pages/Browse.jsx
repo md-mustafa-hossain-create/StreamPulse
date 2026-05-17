@@ -1,9 +1,10 @@
-import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
-import HeroSection from "../components/browse/HeroSection";
-import SecondaryContainer from "../components/browse/SecondaryContainer";
+import {
+  HeroSection,
+  SecondaryContainer,
+  useNowPlayingMovies,
+} from "../features/movies";
 
 const Browse = () => {
-  // Fetching movie data on mount via custom hooks
   useNowPlayingMovies();
 
   return (

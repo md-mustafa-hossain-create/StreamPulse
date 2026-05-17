@@ -1,4 +1,4 @@
-import { BG_IMAGE_URL } from "../../../utils/constants";
+import authBackground from "../../../assets/authBackground-bg.jpg";
 
 /**
  * NOTE: cinematic background component for the authentication screens
@@ -9,7 +9,7 @@ const AuthBackground = () => {
   return (
     <>
       <img
-        src={BG_IMAGE_URL}
+        src={authBackground}
         className="w-full h-full object-cover"
         style={{
           transform:

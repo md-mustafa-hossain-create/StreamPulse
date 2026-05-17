@@ -1,12 +1,13 @@
 import { useState } from "react";
 import logo from "../../assets/logo.svg";
 import { User, Menu, X } from "lucide-react";
-import Button from "../ui/Button";
+import { Button } from "../ui";
 import { NavLink } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../lib/firebase";
 import { useSelector } from "react-redux";
-import { APP_NAME, NAV_ITEMS, ROUTES } from "../../utils/constants";
+import { APP_NAME, NAV_ITEMS } from "../../constants/app";
+import { ROUTES } from "../../constants/routes";
 
 const Header = ({ variant = "main" }) => {
   const [isOpen, setIsOpen] = useState(false);
